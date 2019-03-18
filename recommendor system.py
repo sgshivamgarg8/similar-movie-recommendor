@@ -13,15 +13,15 @@ movie_titles = pd.read_csv('ml-latest-small/movies.csv')
 
 ##print(movie_titles)
 
-'merge the movie title into the ratings table'
+## merge the movie title into the ratings table
 df = pd.merge(df, movie_titles, on='movieId')
 ##print(df.info())
 
-'Group by title and calculate mean rating'
+## Group by title and calculate mean rating
 ratings = pd.DataFrame(df.groupby('title')['rating'].mean())
 ##print(ratings.head())
 
-'Group by title and count number of ratings per movie'
+## Group by title and count number of ratings per movie
 ratings['number_of_ratings'] = df.groupby('title')['rating'].count()
 ##print(ratings.head())
 
